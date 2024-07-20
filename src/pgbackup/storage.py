@@ -1,4 +1,4 @@
-import boto3
+
 
 def local(infile, outfile):
     # Biztosítja, hogy a kimeneti fájl írása megtörténjen
@@ -7,8 +7,9 @@ def local(infile, outfile):
     outfile.close()
     infile.close()
 
-client = boto3.client('s3')
 
-def s3(infile, bucket, name):
+def s3(client, infile, bucket, name):
     # Feltölti a fájlobjektumot az S3-ba
     client.upload_fileobj(infile, bucket, name)
+
+

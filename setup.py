@@ -12,7 +12,7 @@ setup(
     long_description_content_type='text/markdown',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    install_requires=['boto3'],
+    install_requires=['boto3', 'io'],
     entry_points={
         'console_scripts': [
             'pgbackup=pgbackup.cli:main'],

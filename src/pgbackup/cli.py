@@ -18,3 +18,21 @@ def create_parser():
                         action=DriverAction,                        
                         required=True)
     return parser
+
+
+def main():
+    import boto3
+    from pgbackup import pgdump, storage
+    import io
+
+    args = create_parser().parse_args()
+    dump = pgdump.dump(args.url)
+    if args.driver == 's3':
+        session = boto3.Session(profile_name='terraProfile')
+        client = session.client('s3')
+        data_stream = io.BytesIO(dump.stdout.read())
+        
+        storage.s3(client, data_stream, args.destination,'example.sql')
+    else:
+        outfile = open(args.destination, 'wb')
+        storage.local(dump.stdout, outfile)
