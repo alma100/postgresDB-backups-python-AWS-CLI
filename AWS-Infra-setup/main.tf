@@ -37,7 +37,7 @@ EOT
 
 
 resource "aws_s3_bucket" "backup_bucket" {
-  bucket = "python-psotgre-backup-4356656756756568454325"
+  bucket = "python-postgres-backup-4356656756756568454325"
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {

@@ -15,8 +15,8 @@ data "aws_ami" "this" {
 }
 
 resource "aws_security_group" "this" {
-  name        = "allow-ssh-only"
-  description = "Security group that allow ssh only"
+  name        = "allow-ssh-and-sql"
+  description = "Security group that allow ssh and sql only"
 
 
   ingress {
@@ -25,14 +25,14 @@ resource "aws_security_group" "this" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-  egress {
-    from_port   = 22
-    to_port     = 22
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+  
   egress {
     from_port   = 0
     to_port     = 0
