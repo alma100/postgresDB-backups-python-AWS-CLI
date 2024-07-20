@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo docker exec -i postgres psql -U admin -d sample <<-EOF
+docker exec -i postgres psql -U admin -d sample <<-EOF
 create table employees (
   id INT,
   first_name VARCHAR(50),

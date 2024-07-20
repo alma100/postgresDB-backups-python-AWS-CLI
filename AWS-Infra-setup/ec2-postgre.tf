@@ -64,7 +64,7 @@ resource "aws_instance" "database" {
 
     sudo usermod -a -G docker ec2-user
 
-    sudo docker run -d \
+    docker run -d \
       --name postgres \
       -e POSTGRES_USER=admin \
       -e POSTGRES_PASSWORD=admin \

@@ -10,5 +10,11 @@ setup(
     description='Test project vagy mi :)',
     long_description=long_desc,
     long_description_content_type='text/markdown',
-    packages=find_packages('src')
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
+    install_requires=['boto3'],
+    entry_points={
+        'console_scripts': [
+            'pgbackup=pgbackup.cli:main'],
+    }
 )
