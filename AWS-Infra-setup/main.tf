@@ -95,5 +95,12 @@ resource "aws_instance" "database" {
   instance_type = "t3.small"
   key_name = aws_key_pair.database_key.key_name
   vpc_security_group_ids = [aws_security_group.this.id]
+
+  user_data = <<-EOF
+    #!/bin/bash
+              
+    chmod +x /db-setup/db-setup.sh
+    /db-setup/db-setup.sh
+    EOF
 }
 
