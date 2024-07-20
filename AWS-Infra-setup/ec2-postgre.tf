@@ -3,7 +3,7 @@ data "aws_ami" "this" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = ["al2023-*"]
   }
 
   filter {
@@ -11,7 +11,7 @@ data "aws_ami" "this" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["137112412989"]
 }
 
 resource "aws_security_group" "this" {
