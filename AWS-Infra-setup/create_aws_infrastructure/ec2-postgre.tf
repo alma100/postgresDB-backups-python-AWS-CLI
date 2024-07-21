@@ -48,6 +48,8 @@ resource "aws_instance" "database" {
   instance_type = "t3.small"
   key_name = aws_key_pair.database_key.key_name
   vpc_security_group_ids = [aws_security_group.this.id]
+  
+  iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
 
   tags = {
     Name = "database"
@@ -57,8 +59,10 @@ resource "aws_instance" "database" {
     #!/bin/bash
     sudo yum update -y
     sudo yum upgrade -y
+    sudo yum install amazon-ssm-agent -y
     sudo yum install -y docker
 
+    sudo service amazon-ssm-agent start
     sudo systemctl start docker
     sudo systemctl enable docker
 

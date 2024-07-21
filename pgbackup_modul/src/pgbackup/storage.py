@@ -10,6 +10,7 @@ def local(infile, outfile):
 
 def s3(client, infile, bucket, name):
     # Feltölti a fájlobjektumot az S3-ba
+    print(name)
     client.upload_fileobj(infile, bucket, name)
 
 

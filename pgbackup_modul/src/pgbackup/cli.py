@@ -23,6 +23,7 @@ def create_parser():
 def main():
     import boto3
     from pgbackup import pgdump, storage
+    from datetime import datetime
     import io
 
     args = create_parser().parse_args()
@@ -30,9 +31,13 @@ def main():
     if args.driver == 's3':
         session = boto3.Session(profile_name='terraProfile')
         client = session.client('s3')
+
         data_stream = io.BytesIO(dump.stdout.read())
-        
-        storage.s3(client, data_stream, args.destination,'example.sql')
+
+        currentTime = datetime.now()
+        currentDatabase = args.url.split('@')[1]
+    
+        storage.s3(client, data_stream, args.destination,f'{currentDatabase}-{currentTime}.sql')
     else:
         outfile = open(args.destination, 'wb')
         storage.local(dump.stdout, outfile)
