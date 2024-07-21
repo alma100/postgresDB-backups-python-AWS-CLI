@@ -167,8 +167,14 @@ cython_debug/
 *.tfstate.backup
 *.tfvars
 *.tfplan
+.terraform.lock.hcl
 
 
 # AWS
 
 aws_credentials.*
+
+# Pipenv
+
+Pipfile
+Pipfile.lock
