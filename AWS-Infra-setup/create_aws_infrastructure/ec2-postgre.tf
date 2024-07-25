@@ -46,7 +46,6 @@ resource "aws_security_group" "this" {
 resource "aws_instance" "database" {
   ami           = data.aws_ami.this.id
   instance_type = "t3.small"
-  key_name = aws_key_pair.database_key.key_name
   vpc_security_group_ids = [aws_security_group.this.id]
   
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name

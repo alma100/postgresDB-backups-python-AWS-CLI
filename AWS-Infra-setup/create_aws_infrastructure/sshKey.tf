@@ -1,4 +1,0 @@
-resource "aws_key_pair" "database_key" {
-  key_name   = "database-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqHBWLjLIIu5mWdsyUTS9/sXpzA+z1wI0VrRMukNPwK70Vth81Assl6ZsqI/reliE20odwanwGHOQHuH0n2Z8AS5B0wsHz+A6LKWeWHL4r1tPkW/J26w/2NJPHvMg4UBNJnx+e7vSffH31EzP5HqHq3fun2GI9dOyA6Npc02SX7Bw3ddB+jVEkGDWmyRd1WO/HhXbs8t4DtNCBtxEr3wy5pa1SekbNWJxrnLvb3BwTl0VwWiV6iu9zo680QC9VdSZY43bOs0JdRjdOKekWn27Eio2fqgPZ+3DTOWSQcG/k9gH0+VteyfXqidlBKR+l1haspCxPelM9vQe9gd3OPXDHlph1lCYAs8qBhDxMli8JNMNRDwBlSeHIZapCeq2BQnK/9mPIJGH6zs5YVrQ3wpv5mBeRqMhCzU/BCDR4jcxe4d/yf7HZRWXe6GgfA9MvlpdJl/DHHEPN9dMALwCrebn0tJ9MOsLDZgqXifgzvrHg3QmbPRu0TNdnvjAZYUJkeSE= aba@ab.test"
-}
