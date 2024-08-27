@@ -28,6 +28,4 @@
 - `terraform apply` after tf project start running, you shold apply the process, type it `yes`
 
 If you need some random data:
-- After ec2 ready, ssh into the instance and run this command: `curl -O https://raw.githubusercontent.com/alma100/postgresDB-backups-python-AWS-CLI/main/AWS-Infra-setup/db-setup/seed-database.sh`
-- `chmod +x seed-database.sh`
 - `./seed-database.sh`
